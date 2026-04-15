@@ -1,0 +1,11 @@
+bin/
+logs/
+tests/test_memory_overflow
+kernel/*.o
+kernel/*.ko
+kernel/*.mod
+kernel/*.mod.c
+kernel/*.mod.o
+kernel/.*.cmd
+kernel/Module.symvers
+kernel/modules.order
