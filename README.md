@@ -30,6 +30,50 @@ sudo insmod kernel/monitor.ko
 ls -l /dev/osj_monitor
 ```
 
+## Arch Linux Setup
+
+Install the packages needed for this specific project:
+
+```bash
+sudo pacman -Syu
+sudo pacman -S --needed base-devel linux-headers
+```
+
+Build the user-space runtime, test helper, and kernel module:
+
+```bash
+make engine
+make tests
+make module
+```
+
+Load the kernel module and confirm that the device node exists:
+
+```bash
+sudo insmod kernel/monitor.ko
+ls -l /dev/osj_monitor
+```
+
+Run the container runtime:
+
+```bash
+./bin/engine
+```
+
+If you want to test the full flow on Arch, one simple session is:
+
+```bash
+start demo 64 128 -- /bin/sh -c 'echo hello-from-container; sleep 5'
+list
+quit
+```
+
+When you are done, unload the module:
+
+```bash
+sudo rmmod monitor
+```
+
 ## Engine Usage
 
 Run the runtime:
